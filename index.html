@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //Function that returns rock, paper, or scissors
+        function computerPlay() {
+            let choices = ["rock","paper","scissors"];
+            return choices[Math.floor(Math.random() * choices.length)];
+        }
+
+        //Asks player to choose a hand
+        function playerPlay() {
+            let playerChoice = prompt("Choose rock, paper, or scissors").toLowerCase();
+            return playerChoice;
+        };
+
+        //Verifies players input is valid
+        function checkForErrors(selection) {
+            if (selection !== "rock" && selection !== "paper" && selection !== "scissors") {
+                alert("That is not a valid option. Please try again");
+            };
+        };
+
+        //Function that plays out round of rock, paper scissors
+        function playRound(playerSelection,computerSelection) {
+
+            checkForErrors(playerSelection);
+
+            console.log("Computer draws " + computerSelection);
+            console.log("Player draws " + playerSelection);
+
+            if (playerSelection == computerSelection){
+                return "It is a tie";
+            }; 
+            if (playerSelection == "rock" && computerSelection == "scissors"){
+                return "Player wins.";
+            }
+            if (playerSelection == "rock" && computerSelection == "paper"){
+                return "Computer wins.";
+            }
+            if (playerSelection == "paper" && computerSelection == "scissors"){
+                return "Computer wins.";
+            }
+            if (playerSelection == "paper" && computerSelection == "rock"){
+                return "Player wins.";
+            }
+            if (playerSelection == "scissors" && computerSelection == "rock"){
+                return "Computer wins.";
+            }
+            if (playerSelection == "scissors" && computerSelection == "paper"){
+                return "Player wins.";
+            }
+        };
+
+        let playerSelection = playerPlay();
+        let computerSelection = computerPlay();
+
+        console.log(playRound(playerSelection, computerSelection));
+
+    </script>
+</body>
+</html>
