@@ -7,63 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-
-        //Function that returns rock, paper, or scissors
-        function computerPlay() {
-            let choices = ["rock","paper","scissors"];
-            return choices[Math.floor(Math.random() * choices.length)];
-        }
-
-        //Asks player to choose a hand
-        function playerPlay() {
-            let playerChoice = prompt("Choose rock, paper, or scissors").toLowerCase();
-            return playerChoice;
-        };
-
-        //Verifies players input is valid
-        function checkForErrors(selection) {
-            if (selection !== "rock" && selection !== "paper" && selection !== "scissors") {
-                alert("That is not a valid option. Please try again");
-            };
-        };
-
-        //Function that plays out round of rock, paper scissors
-        function playRound(playerSelection,computerSelection) {
-
-            checkForErrors(playerSelection);
-
-            console.log("Computer draws " + computerSelection);
-            console.log("Player draws " + playerSelection);
-
-            if (playerSelection == computerSelection){
-                return "It is a tie";
-            }; 
-            if (playerSelection == "rock" && computerSelection == "scissors"){
-                return "Player wins.";
-            }
-            if (playerSelection == "rock" && computerSelection == "paper"){
-                return "Computer wins.";
-            }
-            if (playerSelection == "paper" && computerSelection == "scissors"){
-                return "Computer wins.";
-            }
-            if (playerSelection == "paper" && computerSelection == "rock"){
-                return "Player wins.";
-            }
-            if (playerSelection == "scissors" && computerSelection == "rock"){
-                return "Computer wins.";
-            }
-            if (playerSelection == "scissors" && computerSelection == "paper"){
-                return "Player wins.";
-            }
-        };
-
-        let playerSelection = playerPlay();
-        let computerSelection = computerPlay();
-
-        console.log(playRound(playerSelection, computerSelection));
-
-    </script>
+    <h1>Rock, Paper, Scissors</h1>
+    <p>Open your console to see the details of each round!</p>
+    <h3>Player Score</h3>
+    <p id="playerScore">0</p>
+    <h3>Computer Score</h3>
+    <p id="computerScore">0</p>
+    <div class="results"></div>
+    <script src="./app.js"></script>
 </body>
 </html>
